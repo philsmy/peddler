@@ -36,6 +36,8 @@ module Peddler
         'Windows-31J'
       elsif chinese?
         'UTF-16'
+      elsif europe?
+        'utf-8'
       else
         'CP1252'
       end
@@ -53,6 +55,10 @@ module Peddler
 
     def chinese?
       host.end_with?('cn')
+    end
+    
+    def europe?
+      host.include?("mws-eu")
     end
   end
 end

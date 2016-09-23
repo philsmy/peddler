@@ -56,5 +56,10 @@ module Peddler
     def chinese?
       host.end_with?('cn')
     end
+    
+    def europe?
+      host.include?("mws-eu")
+    end
+    
   end
 end

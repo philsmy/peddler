@@ -3,16 +3,34 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [1.4.1] - 2016-09-03
+### Changed
+- Make Errors::Builder thread-safe.
+
+### Fixed
+- Support pallet lists in the FullfillmentInboundShipment/PutTransportContent
+operation.
+
+## [1.4.0] - 2016-08-15
+### Added
+- Add GetPackageTrackingDetails operation to the FulfillmentOutboundShipment
+client.
+- Add GetMyFeesEstimate operation to the Products client.
+
 ### Changed
 - Raise error if one of two required keywords is not specified when listing
 orders.
-- Make API errors more expressive.
+- Add optional handler that makes API errors more expressive. This will become
+default next major version bump.
 
 ### Removed
-- Remove obsolete Webstore API.
+- Remove obsolete Webstore API, Cart Information, and Customer Information
+APIs.
 
 ### Fixed
 - Parse summaries of non-English flat files.
+- Fix Excon error handling after breaking changes in its 0.50.0 release.
 
 ## [1.3.0] - 2016-01-21
 ### Added

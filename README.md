@@ -101,27 +101,13 @@ Alternatively, rescue.
 ```ruby
 begin
   client.some_method
-rescue Excon::Errors::ServiceUnavailable => e
+rescue Excon::Error::ServiceUnavailable => e
   logger.warn e.response.message
   retry
 end
 ```
 
 ## The APIs
-
-### Cart Information
-
-With the MWS Cart Information API, you can retrieve shopping carts that your Amazon Webstore customers have created. The Cart Information API enables you to programmatically integrate Amazon Webstore cart information with your CRM systems, marketing applications, and other systems that require cart data.
-
-- [Amazon references](https://developer.amazonservices.com/gp/mws/api.html?group=cartinformation&section=cartinformation)
-- [Peddler API docs](http://www.rubydoc.info/gems/peddler/MWS/CartInformation/Client)
-
-### Customer Information
-
-With the MWS Customer Information API, you can retrieve information from the customer accounts of your Amazon Webstore customers. This customer information includes customer name, contact information, customer account type, and associated Amazon Webstore marketplaces. The Customer Information API enables you to programmatically integrate Amazon Webstore customer account information with your CRM systems, marketing applications, and other systems that require customer data.
-
-- [Amazon references](https://developer.amazonservices.com/gp/mws/api.html?group=customerinformation&section=customerinformation)
-- [Peddler API docs](http://www.rubydoc.info/gems/peddler/MWS/CustomerInformation/Client)
 
 ### Feeds
 
@@ -162,6 +148,7 @@ Support for creating and cancelling fulfillment orders has been implemented, but
 
 ### Merchant Fulfillment
 
+>>>>>>> upstream/master
 The Merchant Fulfillment API provides programmatic access to Amazon’s fulfillment shipping services for sellers, including competitive rates with Amazon-partnered carriers. Sellers can find out what shipping services are available by submitting information about a proposed fulfillment shipment, such as package size and weight; shipment origin and destination; and delivery date requirements. Sellers can choose from the shipping service options returned by Amazon, and then receive shipping labels for fulfilling their orders.
 
 - [Amazon references](https://developer.amazonservices.com/gp/mws/api.html?group=merchantfulfillment&section=merchantfulfillment)

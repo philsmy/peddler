@@ -12,6 +12,11 @@ ClassLength:
 Documentation:
   Exclude:
     - 'test/**/*'
+<<<<<<< HEAD
+=======
+DotPosition:
+  EnforcedStyle: leading
+>>>>>>> upstream/master
 GlobalVars:
   Exclude:
     - 'test/**/*'
@@ -31,3 +36,8 @@ MultilineMethodCallIndentation:
 ParameterLists:
   Exclude:
     - 'lib/mws/**/client.rb'
+<<<<<<< HEAD
+=======
+StringLiterals:
+  EnforcedStyle: single_quotes
+>>>>>>> upstream/master

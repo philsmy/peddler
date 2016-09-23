@@ -12,10 +12,21 @@ language: ruby
 matrix:
   allow_failures:
     - rvm: ruby-head
+<<<<<<< HEAD
 rvm:
   - 2.0
   - 2.1
   - 2.2
   - 2.3.1
+=======
+  exclude:
+    - rvm: jruby-9000
+      gemfile: gemfiles/ox.gemfile
+rvm:
+  - 2.1
+  - 2.2
+  - 2.3.1
+  - jruby-9000
+>>>>>>> upstream/master
   - ruby-head
 sudo: false

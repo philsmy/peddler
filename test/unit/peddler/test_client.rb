@@ -138,11 +138,7 @@ class TestPeddlerClient < MiniTest::Test
   def test_error_callback_on_class
     Excon.stub({}, status: 503)
 
-<<<<<<< HEAD
-    assert_raises(Excon::Errors::ServiceUnavailable) do
-=======
     assert_raises(Excon::Error::ServiceUnavailable) do
->>>>>>> upstream/master
       @client.run
     end
 
@@ -157,11 +153,7 @@ class TestPeddlerClient < MiniTest::Test
   def test_error_callback_on_instance
     Excon.stub({}, status: 503)
 
-<<<<<<< HEAD
-    assert_raises(Excon::Errors::ServiceUnavailable) do
-=======
     assert_raises(Excon::Error::ServiceUnavailable) do
->>>>>>> upstream/master
       @client.run
     end
 
@@ -185,11 +177,7 @@ class TestPeddlerClient < MiniTest::Test
     other_client = klass.new
     other_client.configure_with_mock_data!
     other_client.operation('Foo')
-<<<<<<< HEAD
-    assert_raises(Excon::Errors::ServiceUnavailable) do
-=======
     assert_raises(Excon::Error::ServiceUnavailable) do
->>>>>>> upstream/master
       other_client.run
     end
 

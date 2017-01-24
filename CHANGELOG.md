@@ -4,6 +4,18 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.5.0] - 2017-01-13
+### Added
+- Add GetInboundGuidanceForSKU, GetInboundGuidanceForASIN, GetPreorderInfo,
+ConfirmPreorder, GetPrepInstructionsForSKU, GetPrepInstructionsForASIN,
+GetUniquePackageLabels, and GetPalletLabels operations to the
+FullfillmentInboundShipment client.
+- Add known error types to Peddler::Errors.
+
+### Fixed
+- Don't camelise symbol keys with capital letters.
+- Parse XML reports.
+
 ## [1.4.1] - 2016-09-03
 ### Changed
 - Make Errors::Builder thread-safe.

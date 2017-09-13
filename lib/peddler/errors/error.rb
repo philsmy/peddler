@@ -1,13 +1,16 @@
 module Peddler
   # @api private
   module Errors
-    KNOWN = %w(
+    # Known codes
+    CODES = %w[
       AccessDenied
       InvalidMarketplace
       InvalidParameterValue
+      InvalidRequest
+      MalformedInput
       QuotaExceeded
       RequestThrottled
-    ).freeze
+    ].freeze
 
     # @api private
     class Error < StandardError
@@ -19,7 +22,7 @@ module Peddler
       end
     end
 
-    KNOWN.each do |name|
+    CODES.each do |name|
       const_set name, Class.new(Error)
     end
   end

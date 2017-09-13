@@ -165,6 +165,42 @@ module MWS
         run
       end
 
+      # Returns a list of return reason codes for a seller SKU in a given marketplace.
+      #
+      # @see http://docs.developer.amazonservices.com/en_US/fba_outbound/FBAOutbound_ListReturnReasonCodes.html
+      # @param [String] seller_sku
+      # @param [Hash] opts
+      # @option opts [String] :marketplace_id
+      # @option opts [String] :seller_fulfillment_order_id
+      # @option opts [String] :language
+      # @return [Peddler::XMLParser]
+      def list_return_reason_codes(seller_sku, opts = {})
+        operation('ListReturnReasonCodes')
+          .add(
+            opts.merge(
+              'SellerSKU' => seller_sku
+            )
+          )
+          .structure!('List', 'member')
+
+        run
+      end
+
+      # Creates a fulfillment return.
+      #
+      # @see http://docs.developer.amazonservices.com/en_US/fba_outbound/FBAOutbound_CreateFulfillmentReturn.html
+      # @param [String] seller_fulfillment_order_id
+      # @param [Array] items
+      # @return [Peddler::XMLParser]
+      def create_fulfillment_return(seller_fulfillment_order_id, items)
+        operation('CreateFulfillmentReturn')
+          .add('SellerFulfillmentOrderId' => seller_fulfillment_order_id)
+          .add('Items' => items)
+          .structure!('Items', 'member')
+
+        run
+      end
+
       # Gets the operational status of the API
       #
       # @see http://docs.developer.amazonservices.com/en_US/fba_outbound/MWS_GetServiceStatus.html

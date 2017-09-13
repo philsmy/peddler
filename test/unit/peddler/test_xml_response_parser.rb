@@ -9,7 +9,7 @@ class TestPeddlerXMLResponseParser < MiniTest::Test
   end
 
   def test_parses_messages
-    body = '<Response><Message><Foo>Bar</Foo></Message></Response>'
+    body = '<Response><MessageType>ProcessingReport</MessageType><Message><Foo>Bar</Foo></Message></Response>'
     parser = Peddler::XMLResponseParser.new(response(body))
     assert_equal 'Bar', parser.parse['Foo']
   end
@@ -31,7 +31,7 @@ class TestPeddlerXMLResponseParser < MiniTest::Test
   def response(body)
     OpenStruct.new(
       body: body,
-      headers: { 'Content-Type' => 'text/xml', 'Content-Length' => '78' }
+      headers: { 'Content-Type' => 'text/xml', 'Content-Length' => body.size }
     )
   end
 end

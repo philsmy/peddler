@@ -3,9 +3,9 @@ require 'null_client'
 
 class TestPeddlerClient < MiniTest::Test
   def setup
-    @body = 'foo'
+    @response_body = 'foo'
     Excon.defaults[:mock] = true
-    Excon.stub({}, body: @body, status: 200)
+    Excon.stub({}, body: @response_body, status: 200)
 
     @klass = Class.new(Null::Client)
     @client = @klass.new
@@ -71,14 +71,14 @@ class TestPeddlerClient < MiniTest::Test
     assert_equal '123', client.aws_access_key_id
   end
 
-  def test_sets_content_type_header_for_latin_flat_file_body
+  def test_sets_content_type_header_for_latin_flat_file
     @client.body = 'foo'
     content_type = @client.headers.fetch('Content-Type')
 
     assert_equal 'text/tab-separated-values; charset=CP1252', content_type
   end
 
-  def test_sets_content_type_header_for_chinese_flat_file_body
+  def test_sets_content_type_header_for_chinese_flat_file
     @client.primary_marketplace_id = 'AAHKV2X7AFYLW'
     @client.body = 'foo'
     content_type = @client.headers.fetch('Content-Type')
@@ -86,7 +86,7 @@ class TestPeddlerClient < MiniTest::Test
     assert_equal 'text/tab-separated-values; charset=UTF-16', content_type
   end
 
-  def test_sets_content_type_header_for_japanese_flat_file_body
+  def test_sets_content_type_header_for_japanese_flat_file
     @client.primary_marketplace_id = 'A1VC38T7YXB528'
     @client.body = 'foo'
     content_type = @client.headers.fetch('Content-Type')
@@ -94,16 +94,46 @@ class TestPeddlerClient < MiniTest::Test
     assert_equal 'text/tab-separated-values; charset=Windows-31J', content_type
   end
 
-  def test_sets_content_type_header_for_xml_body
+  def test_sets_content_type_header_for_xml
     @client.body = '<?xml version="1.0"?><Foo></Foo>'
     content_type = @client.headers.fetch('Content-Type')
 
     assert_equal 'text/xml', content_type
   end
 
+  def test_encodes_body_for_latin_flat_file
+    @client.body = 'foo'
+    assert_equal 'Windows-1252', @client.body.encoding.to_s
+  end
+
+  def test_encodes_body_for_chinese_flat_file
+    @client.primary_marketplace_id = 'AAHKV2X7AFYLW'
+    @client.body = 'foo'
+    assert_equal 'UTF-16', @client.body.encoding.to_s
+  end
+
+  def test_encodes_body_for_japanese_flat_file
+    @client.primary_marketplace_id = 'A1VC38T7YXB528'
+    @client.body = 'foo'
+    assert_equal 'Windows-31J', @client.body.encoding.to_s
+  end
+
   def test_runs_a_request
     res = @client.run
-    assert_equal @body, res.body
+    assert_equal @response_body, res.body
+  end
+
+  def test_clears_body_when_run_succeeds
+    @client.body = 'foo'
+    @client.run
+    assert_nil @client.body
+  end
+
+  def test_does_not_clear_body_when_run_fails
+    Excon.stub({}, status: 503)
+    @client.body = 'foo'
+    assert_raises { @client.run }
+    refute_nil @client.body
   end
 
   def test_streams_response
@@ -111,7 +141,7 @@ class TestPeddlerClient < MiniTest::Test
     streamer = ->(chunk, _, _) { chunks << chunk }
     @client.run(&streamer)
 
-    assert_equal @body, chunks
+    assert_equal @response_body, chunks
   end
 
   class Instrumentor

@@ -137,6 +137,52 @@ class TestMWSFulfillmentOutboundShipmentClient < MiniTest::Test
     assert_equal operation, @client.operation
   end
 
+  def test_lists_return_reason_codes
+    seller_sku = 'ABC123'
+    seller_fulfillment_order_id = '123ABC'
+
+    operation = {
+      'Action' => 'ListReturnReasonCodes',
+      'SellerSKU' => seller_sku,
+      'SellerFulfillmentOrderId' => seller_fulfillment_order_id
+    }
+
+    @client.stub(:run, nil) do
+      @client.list_return_reason_codes(
+        seller_sku,
+        seller_fulfillment_order_id: seller_fulfillment_order_id
+      )
+    end
+
+    assert_equal operation, @client.operation
+  end
+
+  def test_creates_fulfillment_return
+    seller_fulfillment_order_id = 'ABC123'
+
+    item = { seller_return_item_id: 'ABC123',
+             seller_fulfillment_order_item_id: 'ABC123',
+             amazon_shipment_id: 'ABC123',
+             return_reason_code: 'VALID_RETURN_REASON_CODE',
+             return_comment: 'RETURN COMMENT FROM CLIENT' }
+
+    operation = {
+      'Action' => 'CreateFulfillmentReturn',
+      'SellerFulfillmentOrderId' => seller_fulfillment_order_id,
+      'Items.member.1.SellerReturnItemId' => item[:seller_return_item_id],
+      'Items.member.1.SellerFulfillmentOrderItemId' => item[:seller_fulfillment_order_item_id],
+      'Items.member.1.AmazonShipmentId' => item[:amazon_shipment_id],
+      'Items.member.1.ReturnReasonCode' => item[:return_reason_code],
+      'Items.member.1.ReturnComment' => item[:return_comment]
+    }
+
+    @client.stub(:run, nil) do
+      @client.create_fulfillment_return(seller_fulfillment_order_id, [item])
+    end
+
+    assert_equal operation, @client.operation
+  end
+
   def test_gets_service_status
     operation = {
       'Action' => 'GetServiceStatus'

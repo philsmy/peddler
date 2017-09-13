@@ -1,11 +1,5 @@
 if RUBY_ENGINE == 'ruby'
   require 'simplecov'
-  require 'coveralls'
-
-  SimpleCov.formatters = [
-    SimpleCov::Formatter::HTMLFormatter,
-    Coveralls::SimpleCov::Formatter
-  ]
 
   SimpleCov.start do
     add_filter '/test/'
@@ -13,6 +7,7 @@ if RUBY_ENGINE == 'ruby'
 end
 
 require 'minitest/autorun'
+require 'minitest/focus'
 begin
   require 'pry'
 rescue LoadError

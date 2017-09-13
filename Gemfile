@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'appraisal'
-gem 'dig_rb'
 gem 'minitest'
+gem 'minitest-focus'
 gem 'rake'
 gem 'rubocop'
 gem 'vcr'
@@ -13,7 +13,8 @@ group :development do
 end
 
 platform :mri do
-  gem 'coveralls'
+  gem 'codeclimate-test-reporter', '~> 1.0'
+  gem 'simplecov'
 end
 
 gemspec

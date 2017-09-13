@@ -1,27 +1,30 @@
 require 'delegate'
 require 'csv'
 require 'digest/md5'
+require 'peddler/headers'
 
 module Peddler
   # @api private
   class FlatFileParser < SimpleDelegator
+    include Headers
+
     # http://stackoverflow.com/questions/8073920/importing-csv-quoting-error-is-driving-me-nuts
     OPTIONS = { col_sep: "\t", quote_char: "\x00", headers: true }.freeze
 
-    attr_reader :content, :summary, :encoding
+    attr_reader :content, :summary
 
     def initialize(res, encoding)
       super(res)
-      @encoding = encoding
-      extract_content
+      scrub_body!(encoding)
+      extract_content_and_summary
     end
 
     def parse(&blk)
-      CSV.parse(scrub_content, OPTIONS, &blk) if content
+      CSV.parse(content, OPTIONS, &blk) if content
     end
 
     def records_count
-      summarize if summary?
+      summarize if summary
     end
 
     def valid?
@@ -30,22 +33,13 @@ module Peddler
 
     private
 
-    def extract_content
-      if summary?
-        @summary, @content = body.split("\n\n")
-      else
-        @content = body.dup
-      end
+    def scrub_body!(encoding)
+      body.force_encoding(encoding) unless body.encoding == Encoding::UTF_8
     end
 
-    def scrub_content
-      content
-        .force_encoding(encoding)
-        .encode('UTF-8', undef: :replace, replace: '?')
-    end
-
-    def summary?
-      body.include?("\n\n")
+    def extract_content_and_summary
+      @content = body.encode('UTF-8', invalid: :replace, undef: :replace)
+      @summary, @content = @content.split("\n\n") if @content.include?("\n\n")
     end
 
     def summarize

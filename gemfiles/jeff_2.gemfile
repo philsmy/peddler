@@ -8,7 +8,7 @@ gem "minitest-focus"
 gem "rake"
 gem "rubocop"
 gem "vcr"
-gem "nokogiri"
+gem "jeff", "~> 2.0"
 
 group :development do
   gem "pry"

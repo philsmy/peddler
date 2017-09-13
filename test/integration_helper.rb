@@ -1,8 +1,7 @@
 require 'helper'
 require 'recorder'
-require 'dig_rb'
 
-%w(mws.yml mws.yml.example).each do |path|
+%w[mws.yml mws.yml.example].each do |path|
   file = File.expand_path("../#{path}", __FILE__)
   if File.exist?(file)
     $mws = YAML.load_file(file)
@@ -17,9 +16,7 @@ class IntegrationTest < MiniTest::Test
 
   def clients
     api = @api || test_name
-    $mws.map do |record|
-      MWS.const_get("#{api}::Client").new(record)
-    end
+    $mws.map { |record| MWS.const_get("#{api}::Client").new(record) }.shuffle
   end
 end
 
@@ -27,9 +24,9 @@ end
 
 VCR.configure do |c|
   c.before_record do |interaction|
-    %w(
+    %w[
       BuyerName BuyerEmail Name AddressLine1 PostalCode Phone Amount
-    ).each do |key|
+    ].each do |key|
       interaction.response.body.gsub!(/<#{key}>[^<]+</, "<#{key}>FILTERED<")
     end
   end

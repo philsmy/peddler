@@ -49,7 +49,7 @@ module Peddler
         'Windows-31J'
       when 'CN'
         'UTF-16'
-      elsif europe?
+      when europe?
         'utf-8'
       else
         'CP1252'

@@ -1,9 +1,9 @@
-if RUBY_ENGINE == 'ruby'
-  require 'simplecov'
+# frozen_string_literal: true
 
-  SimpleCov.start do
-    add_filter '/test/'
-  end
+# Keep SimpleCov at top.
+require 'simplecov'
+SimpleCov.start do
+  add_filter '/test/'
 end
 
 require 'minitest/autorun'

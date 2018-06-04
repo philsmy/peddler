@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'helper'
 require 'mws/off_amazon_payments/client'
 
@@ -7,7 +9,7 @@ class TestMWSOffAmazonPaymentsClient < MiniTest::Test
   end
 
   def test_sandboxes
-    @client.primary_marketplace_id = 'A1F83G8C2ARO7P'
+    @client.marketplace = 'GB'
     refute_includes @client.aws_endpoint, 'Sandbox'
     assert_includes @client.sandbox.aws_endpoint, 'Sandbox'
   end

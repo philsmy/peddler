@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'peddler/client'
 
 module MWS
@@ -7,17 +9,17 @@ module MWS
     # is an actionable, timely, and personalized opportunity to increase your
     # sales and performance.
     class Client < ::Peddler::Client
-      version '2013-04-01'
-      path "/Recommendations/#{version}"
+      self.version = '2013-04-01'
+      self.path = "/Recommendations/#{version}"
 
       # Checks whether there are active recommendations for each category for
       # the given marketplace, and if there are, returns the time when
       # recommendations were last updated for each category
       #
-      # @see http://docs.developer.amazonservices.com/en_US/recommendations/Recommendations_GetLastUpdatedTimeForRecommendations.html
+      # @see https://docs.developer.amazonservices.com/en_US/recommendations/Recommendations_GetLastUpdatedTimeForRecommendations.html
       # @param [String] marketplace_id
       # @return [Peddler::XMLParser]
-      def get_last_updated_time_for_recommendations(marketplace_id = primary_marketplace_id)
+      def get_last_updated_time_for_recommendations(marketplace_id)
         operation('GetLastUpdatedTimeForRecommendations')
           .add('MarketplaceId' => marketplace_id)
 
@@ -27,18 +29,16 @@ module MWS
       # Lists active recommendations for a specific category or for all
       # categories for a specific marketplace
       #
-      # @see http://docs.developer.amazonservices.com/en_US/recommendations/Recommendations_ListRecommendations.html
-      # @overload list_recommendations(opts = { marketplace_id: primary_marketplace_id })
-      #   @param [Hash] opts
-      #   @option opts [String] :marketplace_id
-      #   @option opts [String] :recommendation_category
-      #   @option opts [Array<Struct, Hash>] :category_query_list
+      # @see https://docs.developer.amazonservices.com/en_US/recommendations/Recommendations_ListRecommendations.html
+      # @param [String] marketplace_id
+      # @param [Hash] opts
+      # @option opts [String] :recommendation_category
+      # @option opts [Array<Struct, Hash>] :category_query_list
       # @return [Peddler::XMLParser]
-      def list_recommendations(opts = {})
-        opts[:marketplace_id] ||= primary_marketplace_id
-
+      def list_recommendations(marketplace_id, opts = {})
         operation('ListRecommendations')
           .add(opts)
+          .add('MarketplaceId' => marketplace_id)
           .structure!(
             'CategoryQueryList', 'CategoryQuery', '1', 'FilterOptions',
             'FilterOption'
@@ -49,7 +49,7 @@ module MWS
 
       # Lists the next page of active recommendations
       #
-      # @see http://docs.developer.amazonservices.com/en_US/recommendations/Recommendations_ListRecommendationsByNextToken.html
+      # @see https://docs.developer.amazonservices.com/en_US/recommendations/Recommendations_ListRecommendationsByNextToken.html
       # @param [String] next_token
       # @return [Peddler::XMLParser]
       def list_recommendations_by_next_token(next_token)
@@ -61,7 +61,7 @@ module MWS
 
       # Gets the service status of the API
       #
-      # @see http://docs.developer.amazonservices.com/en_US/recommendations/Recommendations_GetServiceStatus.html
+      # @see https://docs.developer.amazonservices.com/en_US/recommendations/Recommendations_GetServiceStatus.html
       # @return [Peddler::XMLParser]
       def get_service_status
         operation('GetServiceStatus')

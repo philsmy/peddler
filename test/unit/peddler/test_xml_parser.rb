@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'helper'
 require 'peddler/xml_parser'
 
@@ -19,7 +21,7 @@ class TestPeddlerXMLParser < MiniTest::Test
   end
 
   def test_does_not_implement_parsing
-    assert_raises NotImplementedError do
+    assert_raises(NotImplementedError) do
       @parser.parse
     end
   end

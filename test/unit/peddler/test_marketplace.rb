@@ -1,29 +1,47 @@
+# frozen_string_literal: true
+
 require 'helper'
 require 'peddler/marketplace'
 
 class TestPeddlerMarketplace < MiniTest::Test
   def setup
-    @marketplace = Peddler::Marketplace.new('ATVPDKIKX0DER')
+    @marketplace = Peddler::Marketplace.find('ATVPDKIKX0DER')
   end
 
-  def test_has_a_host
+  def test_country_code
+    assert @marketplace.country_code
+  end
+
+  def test_host
     assert @marketplace.host
   end
 
-  def test_has_an_encoding
+  def test_encoding
     assert @marketplace.encoding
   end
 
-  def test_guard_against_missing_marketplace_id
-    assert_raises(Peddler::Marketplace::BadId, 'missing MarketplaceId') do
-      Peddler::Marketplace.new(nil)
+  def test_guard_against_missing_country_code
+    error = assert_raises ArgumentError do
+      Peddler::Marketplace.find(nil)
     end
+    assert_equal 'missing marketplace', error.message
   end
 
-  def test_guard_against_bad_marketplace_id
-    assert_raises(Peddler::Marketplace::BadId, '"123" is not a valid MarketplaceId') do
-      marketplace = Peddler::Marketplace.new('123')
-      marketplace.host
+  def test_guard_against_invalid_country_code
+    error = assert_raises ArgumentError do
+      Peddler::Marketplace.find('FOO')
+    end
+    assert_equal '"FOO" is not a valid marketplace', error.message
+  end
+
+  class TestFindByCountryCode < TestPeddlerMarketplace
+    def setup
+      @marketplace = Peddler::Marketplace.find('US')
+    end
+
+    def test_translates_uk
+      marketplace = Peddler::Marketplace.find('UK')
+      assert_equal 'GB', marketplace.country_code
     end
   end
 end

@@ -1,43 +1,44 @@
-addons:
-  code_climate:
-    repo_token: 738ee95086106a9011b10dd006ac5e0d74541774c8bb6d9e5ceb705c01115afa
-after_success:
-  - bundle exec codeclimate-test-reporter
-before_install:
-  - gem update --system
-  - gem install bundler
 env:
   global:
     - AWS_ACCESS_KEY_ID=foo
     - AWS_SECRET_ACCESS_KEY=bar
-gemfile:
-  - gemfiles/libxml.gemfile
-  - gemfiles/oga.gemfile
-  - gemfiles/ox.gemfile
-  - gemfiles/nokogiri.gemfile
-  - gemfiles/rexml.gemfile
-  - gemfiles/jeff_1.gemfile
-  - gemfiles/jeff_2.gemfile
+    - CC_TEST_REPORTER_ID=738ee95086106a9011b10dd006ac5e0d74541774c8bb6d9e5ceb705c01115afa
+    - JRUBY_OPTS="$JRUBY_OPTS --debug"
 language: ruby
+before_install:
+  - gem update --system
+  - gem install bundler
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+fter_script:
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+rvm:
+  - 2.3
+  - 2.4
+  - 2.5
+  - jruby-9000
+  - ruby-head
 matrix:
   allow_failures:
     - rvm: ruby-head
-<<<<<<< HEAD
 rvm:
   - 2.0
   - 2.1
   - 2.2
   - 2.3.1
-=======
-  exclude:
-    - rvm: jruby-9000
-      gemfile: gemfiles/ox.gemfile
 rvm:
   - 2.1
   - 2.2
   - 2.3.3
   - 2.4.0
   - jruby-9000
->>>>>>> upstream/master
   - ruby-head
+bundler_args: --without development
+gemfile:
+  - gemfiles/libxml.gemfile
+  - gemfiles/ox.gemfile
+  - gemfiles/nokogiri.gemfile
+  - gemfiles/rexml.gemfile
 sudo: false

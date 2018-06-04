@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'integration_helper'
 require 'mws/feeds'
 
@@ -24,9 +26,6 @@ class TestFeeds < IntegrationTest
       res = client.submit_feed(feed_content, feed_type)
       feed_submission_id = res.dig('FeedSubmissionInfo', 'FeedSubmissionId')
       assert feed_submission_id
-
-      res = client.get_feed_submission_result(feed_submission_id)
-      assert res.records_count
 
       # Clean up
       client.cancel_feed_submissions(

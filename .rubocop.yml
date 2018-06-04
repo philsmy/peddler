@@ -1,42 +1,38 @@
 AllCops:
-  Exclude:
-    - 'test/helper.rb'
-AbcSize:
-  Exclude:
-    - 'test/**/*'
-AccessorMethodName:
-  Exclude:
-    - 'lib/mws/**/client.rb'
-ClassLength:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
+Gemspec/RequiredRubyVersion:
   Enabled: false
-Documentation:
+Metrics/AbcSize:
   Exclude:
-    - 'test/**/*'
-DotPosition:
-  EnforcedStyle: leading
-FileName:
+    - test/**/*
+Metrics/BlockLength:
   Exclude:
-    - Appraisals
-GlobalVars:
+    - lib/peddler/marketplace.rb
+Metrics/ClassLength:
   Exclude:
-    - 'test/**/*'
-HandleExceptions:
+    - lib/peddler/client.rb
+    - lib/mws/**/client.rb
+    - test/**/*
+Lint/HandleExceptions:
   Exclude:
-    - 'test/**/*'
-GuardClause:
-  Enabled: false
-LineLength:
+    - test/**/*
+Metrics/LineLength:
   Exclude:
-    - 'test/**/*'
-    - 'lib/mws/**/client.rb'
-MethodLength:
+    - test/**/*
+  IgnoredPatterns: ['\A\s*#']
+Metrics/MethodLength:
   Exclude:
-    - 'test/**/*'
-    - 'lib/mws/**/client.rb'
-MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-ParameterLists:
+    - test/**/*
+    - lib/mws/**/client.rb
+Metrics/ParameterLists:
   Exclude:
-    - 'lib/mws/**/client.rb'
-StringLiterals:
-  EnforcedStyle: single_quotes
+    - lib/mws/**/client.rb
+Naming/AccessorMethodName:
+  Exclude:
+    - lib/mws/**/client.rb
+Performance/RegexpMatch:
+  Enabled: false # doesn't work below 2.4
+Style/Documentation:
+  Exclude:
+    - test/**/*

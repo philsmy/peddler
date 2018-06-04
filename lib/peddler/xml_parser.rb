@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 require 'delegate'
-require 'dig_rb'
 require 'forwardable'
 require 'peddler/headers'
 require 'multi_xml'
@@ -12,9 +13,11 @@ module Peddler
 
     def_delegator :parse, :dig
 
-    def parse
+    def data
       @data ||= find_data
     end
+
+    alias parse data
 
     def xml
       MultiXml.parse(body)

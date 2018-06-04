@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: https://mws.amazonservices.ca/Subscriptions/2013-07-01
+    uri: https://mws.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=GetServiceStatus&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A07Z&Version=2013-07-01&Signature=vvZcvEm0PTDdYYR2TisqLQWDBmXalEfRjSE6TVHFKrU%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetServiceStatus&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A07Z&Version=2013-07-01&Signature=vvZcvEm0PTDdYYR2TisqLQWDBmXalEfRjSE6TVHFKrU%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:07 GMT
@@ -43,21 +43,21 @@ http_interactions:
             <RequestId>f682fe2e-803c-4a33-a60a-1cc987939035</RequestId>
           </ResponseMetadata>
         </GetServiceStatusResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:07 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=GetServiceStatus&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A07Z&Version=2013-07-01&Signature=jffcpJV8YHCyiBmKzi2v1sK5ZEF%2BaMyOjEPHdMsSMVo%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetServiceStatus&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A07Z&Version=2013-07-01&Signature=jffcpJV8YHCyiBmKzi2v1sK5ZEF%2BaMyOjEPHdMsSMVo%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:07 GMT
@@ -88,21 +88,21 @@ http_interactions:
             <RequestId>9860138e-6d7d-4dad-bf69-e4a0350ea07d</RequestId>
           </ResponseMetadata>
         </GetServiceStatusResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:08 GMT
 - request:
     method: post
     uri: https://mws.amazonservices.jp/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=GetServiceStatus&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A08Z&Version=2013-07-01&Signature=FmlbZNlvY0cyVVWCSDFxDdnW%2B3iQJbmI1tz1bmd%2FLLw%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetServiceStatus&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A08Z&Version=2013-07-01&Signature=FmlbZNlvY0cyVVWCSDFxDdnW%2B3iQJbmI1tz1bmd%2FLLw%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:09 GMT
@@ -133,21 +133,21 @@ http_interactions:
             <RequestId>6ecd42f7-889b-4df1-a630-81d96981ef09</RequestId>
           </ResponseMetadata>
         </GetServiceStatusResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:09 GMT
 - request:
     method: post
     uri: https://mws.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=GetServiceStatus&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A09Z&Version=2013-07-01&Signature=FScfA68fSrpMA4nucgftNCowj2bsqm8vmY6pfq6JPdI%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetServiceStatus&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A09Z&Version=2013-07-01&Signature=FScfA68fSrpMA4nucgftNCowj2bsqm8vmY6pfq6JPdI%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:09 GMT
@@ -178,21 +178,21 @@ http_interactions:
             <RequestId>41e4eb29-5010-4242-88e5-b7ab2ec07bee</RequestId>
           </ResponseMetadata>
         </GetServiceStatusResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:10 GMT
 - request:
     method: post
-    uri: https://mws.amazonservices.ca/Subscriptions/2013-07-01
+    uri: https://mws.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=ListRegisteredDestinations&MarketplaceId=A2EUQ1WTGCTBG2&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A10Z&Version=2013-07-01&Signature=DgZsF%2Bau%2FqZaiBKaoXBh%2Frt4YRJb2s2E3LJKCCuzL7w%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListRegisteredDestinations&MarketplaceId=A2EUQ1WTGCTBG2&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A10Z&Version=2013-07-01&Signature=DgZsF%2Bau%2FqZaiBKaoXBh%2Frt4YRJb2s2E3LJKCCuzL7w%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:10 GMT
@@ -240,21 +240,21 @@ http_interactions:
             <RequestId>4d01dc9f-37d9-4fc9-b720-762ddf7bc853</RequestId>
           </ResponseMetadata>
         </ListRegisteredDestinationsResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:11 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=ListRegisteredDestinations&MarketplaceId=A1PA6795UKMFR9&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A11Z&Version=2013-07-01&Signature=3yo1lXwE%2F6SPyz6wjQjyMf1aoAKLqbl%2FNL4STp4%2FTm0%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListRegisteredDestinations&MarketplaceId=A1PA6795UKMFR9&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A11Z&Version=2013-07-01&Signature=3yo1lXwE%2F6SPyz6wjQjyMf1aoAKLqbl%2FNL4STp4%2FTm0%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:11 GMT
@@ -304,21 +304,21 @@ http_interactions:
             <RequestId>b282d3e3-7297-4be3-910d-f165d13901f1</RequestId>
           </ResponseMetadata>
         </ListRegisteredDestinationsResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:11 GMT
 - request:
     method: post
     uri: https://mws.amazonservices.jp/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=ListRegisteredDestinations&MarketplaceId=A1VC38T7YXB528&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A11Z&Version=2013-07-01&Signature=pnmuV1wK1nOZ%2FeXXBshHmtR5IQeUcGTqM4tF52NsoPQ%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListRegisteredDestinations&MarketplaceId=A1VC38T7YXB528&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A11Z&Version=2013-07-01&Signature=pnmuV1wK1nOZ%2FeXXBshHmtR5IQeUcGTqM4tF52NsoPQ%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:12 GMT
@@ -368,21 +368,21 @@ http_interactions:
             <RequestId>6b4609fe-0d58-40ef-a3cc-6bf48f272c35</RequestId>
           </ResponseMetadata>
         </ListRegisteredDestinationsResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:12 GMT
 - request:
     method: post
     uri: https://mws.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=ListRegisteredDestinations&MarketplaceId=ATVPDKIKX0DER&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A12Z&Version=2013-07-01&Signature=Wkxwo3snjReQjs1BzVJFAj4V7PSTXYml4nfM0%2FJc48k%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListRegisteredDestinations&MarketplaceId=ATVPDKIKX0DER&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A12Z&Version=2013-07-01&Signature=Wkxwo3snjReQjs1BzVJFAj4V7PSTXYml4nfM0%2FJc48k%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:13 GMT
@@ -432,21 +432,21 @@ http_interactions:
             <RequestId>4c55775d-5a57-4ae5-8fa6-348f6a0933c1</RequestId>
           </ResponseMetadata>
         </ListRegisteredDestinationsResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:13 GMT
 - request:
     method: post
-    uri: https://mws.amazonservices.ca/Subscriptions/2013-07-01
+    uri: https://mws.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=ListSubscriptions&MarketplaceId=A2EUQ1WTGCTBG2&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A13Z&Version=2013-07-01&Signature=p6iUYbNG0iquQmXE3yPOGFF7t1sozWRLG%2FeZgtBkjJ4%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListSubscriptions&MarketplaceId=A2EUQ1WTGCTBG2&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A13Z&Version=2013-07-01&Signature=p6iUYbNG0iquQmXE3yPOGFF7t1sozWRLG%2FeZgtBkjJ4%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:13 GMT
@@ -489,21 +489,21 @@ http_interactions:
             <RequestId>f59a0e06-154f-4d6f-8817-eac31f706a4d</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:14 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=ListSubscriptions&MarketplaceId=A1PA6795UKMFR9&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A14Z&Version=2013-07-01&Signature=YET%2FJIw9oFxMM2BxNwkGnSIwAAdAKeg56T0t3%2FYsZ6Y%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListSubscriptions&MarketplaceId=A1PA6795UKMFR9&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A14Z&Version=2013-07-01&Signature=YET%2FJIw9oFxMM2BxNwkGnSIwAAdAKeg56T0t3%2FYsZ6Y%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:13 GMT
@@ -546,21 +546,21 @@ http_interactions:
             <RequestId>817372fb-9a0e-4126-97d6-c5481f8a0e88</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:14 GMT
 - request:
     method: post
     uri: https://mws.amazonservices.jp/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=ListSubscriptions&MarketplaceId=A1VC38T7YXB528&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A14Z&Version=2013-07-01&Signature=u1ch7TiNOhfLV80M%2BLvTZqHzjF8ADY71RD8HyvIsZOY%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListSubscriptions&MarketplaceId=A1VC38T7YXB528&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A14Z&Version=2013-07-01&Signature=u1ch7TiNOhfLV80M%2BLvTZqHzjF8ADY71RD8HyvIsZOY%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:15 GMT
@@ -605,21 +605,21 @@ http_interactions:
             <RequestId>67489315-fa27-46ec-8226-b15e4e710f40</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:15 GMT
 - request:
     method: post
     uri: https://mws.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: US-ASCII
-      string: AWSAccessKeyId=FILTERED&Action=ListSubscriptions&MarketplaceId=ATVPDKIKX0DER&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A15Z&Version=2013-07-01&Signature=6VZo212iJrS2SDYWYv%2B%2FGrItg2DuV9RtnEJ1Fk6RFVU%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListSubscriptions&MarketplaceId=ATVPDKIKX0DER&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-03-28T18%3A14%3A15Z&Version=2013-07-01&Signature=6VZo212iJrS2SDYWYv%2B%2FGrItg2DuV9RtnEJ1Fk6RFVU%3D
     headers:
       User-Agent:
       - Jeff/1.2.0 (Language=Ruby; Hakans-MacBook-Pro.local)
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Sat, 28 Mar 2015 18:14:16 GMT
@@ -662,14 +662,14 @@ http_interactions:
             <RequestId>5b700336-bdd2-40b8-b9f6-70883ce4081a</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsResponse>
-    http_version: 
+    http_version:
   recorded_at: Sat, 28 Mar 2015 18:14:16 GMT
 - request:
     method: post
-    uri: https://mws.amazonservices.com.mx/Subscriptions/2013-07-01
+    uri: https://mws.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=GetServiceStatus&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A50Z&Version=2013-07-01&Signature=StpfLQsK2c7DPONYloSxRHIs%2FJKMxwxzCZdwA30wWnc%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetServiceStatus&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A50Z&Version=2013-07-01&Signature=StpfLQsK2c7DPONYloSxRHIs%2FJKMxwxzCZdwA30wWnc%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -678,7 +678,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -712,14 +712,14 @@ http_interactions:
             <RequestId>79319381-431a-49c7-984d-eb55c80ff114</RequestId>
           </ResponseMetadata>
         </GetServiceStatusResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:51 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=GetServiceStatus&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A51Z&Version=2013-07-01&Signature=6j9XQm8yTkcxsptulARzqynlL6lUrSxQbsAIF8%2BtJJQ%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetServiceStatus&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A51Z&Version=2013-07-01&Signature=6j9XQm8yTkcxsptulARzqynlL6lUrSxQbsAIF8%2BtJJQ%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -728,7 +728,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -762,14 +762,14 @@ http_interactions:
             <RequestId>09e28a8d-f84d-4162-ad0a-919141515f51</RequestId>
           </ResponseMetadata>
         </GetServiceStatusResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:51 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=GetServiceStatus&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A51Z&Version=2013-07-01&Signature=RUU%2Bp8zilMknDOrLJe2Yfc4jAnFdKRfieJetbQf%2F5w4%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetServiceStatus&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A51Z&Version=2013-07-01&Signature=RUU%2Bp8zilMknDOrLJe2Yfc4jAnFdKRfieJetbQf%2F5w4%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -778,7 +778,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -812,14 +812,14 @@ http_interactions:
             <RequestId>26613e61-aeba-4efb-be57-0356b2385701</RequestId>
           </ResponseMetadata>
         </GetServiceStatusResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:51 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=GetServiceStatus&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A51Z&Version=2013-07-01&Signature=z0SBagLblGGmkpUVpfmnSuvCLQjyf8ZtyaXQWQp%2FZkk%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetServiceStatus&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A51Z&Version=2013-07-01&Signature=z0SBagLblGGmkpUVpfmnSuvCLQjyf8ZtyaXQWQp%2FZkk%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -828,7 +828,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -862,14 +862,14 @@ http_interactions:
             <RequestId>0a49b562-96ab-4716-a8d0-076449b409f0</RequestId>
           </ResponseMetadata>
         </GetServiceStatusResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:52 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=GetServiceStatus&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A52Z&Version=2013-07-01&Signature=eyOKUZ5Mxori1%2FZgtX%2FjyPSusadkgVBP2066rdW0muA%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetServiceStatus&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A52Z&Version=2013-07-01&Signature=eyOKUZ5Mxori1%2FZgtX%2FjyPSusadkgVBP2066rdW0muA%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -878,7 +878,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -912,14 +912,14 @@ http_interactions:
             <RequestId>2963f32e-2b96-4428-a033-43cc77d6642d</RequestId>
           </ResponseMetadata>
         </GetServiceStatusResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:52 GMT
 - request:
     method: post
-    uri: https://mws.amazonservices.com.mx/Subscriptions/2013-07-01
+    uri: https://mws.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListSubscriptions&MarketplaceId=A1AM78C64UM0Y8&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A52Z&Version=2013-07-01&Signature=Cg4X%2BpCpB4eVdkMBKEudh8%2BEfh%2BAm8FaoP3xHI3BIBk%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListSubscriptions&MarketplaceId=A1AM78C64UM0Y8&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A52Z&Version=2013-07-01&Signature=Cg4X%2BpCpB4eVdkMBKEudh8%2BEfh%2BAm8FaoP3xHI3BIBk%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -928,7 +928,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -960,14 +960,14 @@ http_interactions:
             <RequestId>45131593-a222-45f4-8bf2-420b58e6434f</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:53 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListSubscriptions&MarketplaceId=A13V1IB3VIYZZH&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A53Z&Version=2013-07-01&Signature=FKfl%2BQuY4X%2FII6WWKmTHM8CjH4JIinJBVV%2B0g9qPkRY%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListSubscriptions&MarketplaceId=A13V1IB3VIYZZH&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A53Z&Version=2013-07-01&Signature=FKfl%2BQuY4X%2FII6WWKmTHM8CjH4JIinJBVV%2B0g9qPkRY%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -976,7 +976,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1022,14 +1022,14 @@ http_interactions:
             <RequestId>daf99154-405d-473f-9a7e-0fa908b9ca20</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:53 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListSubscriptions&MarketplaceId=A1RKKUPIHCS9HS&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A53Z&Version=2013-07-01&Signature=o9l24d1BGSgri5WkXX1tPX4SWHj2AW2FcxKSHqzSXYE%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListSubscriptions&MarketplaceId=A1RKKUPIHCS9HS&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A53Z&Version=2013-07-01&Signature=o9l24d1BGSgri5WkXX1tPX4SWHj2AW2FcxKSHqzSXYE%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -1038,7 +1038,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1084,14 +1084,14 @@ http_interactions:
             <RequestId>cda76851-7bd7-4684-99a0-e52fee1b5419</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:54 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListSubscriptions&MarketplaceId=APJ6JRA9NG5V4&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A54Z&Version=2013-07-01&Signature=n77vyxs2VxmbRA3mlN4%2BkLGrnr7gwfRDvaesO54qyXE%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListSubscriptions&MarketplaceId=APJ6JRA9NG5V4&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A54Z&Version=2013-07-01&Signature=n77vyxs2VxmbRA3mlN4%2BkLGrnr7gwfRDvaesO54qyXE%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -1100,7 +1100,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1146,14 +1146,14 @@ http_interactions:
             <RequestId>7a865e8e-1b11-4a5e-91c0-edcf66a942b9</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:54 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListSubscriptions&MarketplaceId=A1F83G8C2ARO7P&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A54Z&Version=2013-07-01&Signature=HhsW8wPrq9TNx9aq3Tw47KfxKcISV%2BEWgOSGLm7YFd0%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListSubscriptions&MarketplaceId=A1F83G8C2ARO7P&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A54Z&Version=2013-07-01&Signature=HhsW8wPrq9TNx9aq3Tw47KfxKcISV%2BEWgOSGLm7YFd0%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -1162,7 +1162,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1208,14 +1208,14 @@ http_interactions:
             <RequestId>7e4a999f-1576-4bfe-9901-b685b77b87a9</RequestId>
           </ResponseMetadata>
         </ListSubscriptionsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:54 GMT
 - request:
     method: post
-    uri: https://mws.amazonservices.com.mx/Subscriptions/2013-07-01
+    uri: https://mws.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListRegisteredDestinations&MarketplaceId=A1AM78C64UM0Y8&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A55Z&Version=2013-07-01&Signature=OajKQW5ONCYwZbbrTOaOXjWDNZF1IrDEm%2FH3JSA7nKA%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListRegisteredDestinations&MarketplaceId=A1AM78C64UM0Y8&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A55Z&Version=2013-07-01&Signature=OajKQW5ONCYwZbbrTOaOXjWDNZF1IrDEm%2FH3JSA7nKA%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -1224,7 +1224,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1256,14 +1256,14 @@ http_interactions:
             <RequestId>9307c3bc-042b-4a6f-a6ec-e953e7282e3d</RequestId>
           </ResponseMetadata>
         </ListRegisteredDestinationsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:55 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListRegisteredDestinations&MarketplaceId=A13V1IB3VIYZZH&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A55Z&Version=2013-07-01&Signature=Y9d3FCJ4hx6kWJvYp9ktVkILcVG28OU1lAlUzNJyAlo%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListRegisteredDestinations&MarketplaceId=A13V1IB3VIYZZH&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A55Z&Version=2013-07-01&Signature=Y9d3FCJ4hx6kWJvYp9ktVkILcVG28OU1lAlUzNJyAlo%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -1272,7 +1272,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1323,14 +1323,14 @@ http_interactions:
             <RequestId>a039202b-e2ba-465e-94b5-6187669efd5c</RequestId>
           </ResponseMetadata>
         </ListRegisteredDestinationsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:56 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListRegisteredDestinations&MarketplaceId=A1RKKUPIHCS9HS&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A56Z&Version=2013-07-01&Signature=75Dv3M68VxrtEiNpIWhwQPixnDmLoTWg8qkABetWP2k%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListRegisteredDestinations&MarketplaceId=A1RKKUPIHCS9HS&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A56Z&Version=2013-07-01&Signature=75Dv3M68VxrtEiNpIWhwQPixnDmLoTWg8qkABetWP2k%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -1339,7 +1339,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1390,14 +1390,14 @@ http_interactions:
             <RequestId>a86d6cea-d6a0-4e49-92bb-96c16f90b461</RequestId>
           </ResponseMetadata>
         </ListRegisteredDestinationsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:56 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListRegisteredDestinations&MarketplaceId=APJ6JRA9NG5V4&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A56Z&Version=2013-07-01&Signature=HLdCukm8rjQXNxgIlHsGMzOUJ3wKuvFLHTCRbwCL4yo%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListRegisteredDestinations&MarketplaceId=APJ6JRA9NG5V4&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A56Z&Version=2013-07-01&Signature=HLdCukm8rjQXNxgIlHsGMzOUJ3wKuvFLHTCRbwCL4yo%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -1406,7 +1406,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1457,14 +1457,14 @@ http_interactions:
             <RequestId>1a342b5d-9f70-4c5b-a021-fd54827f4ab2</RequestId>
           </ResponseMetadata>
         </ListRegisteredDestinationsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:56 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Subscriptions/2013-07-01
     body:
       encoding: UTF-8
-      string: AWSAccessKeyId=FILTERED&Action=ListRegisteredDestinations&MarketplaceId=A1F83G8C2ARO7P&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A56Z&Version=2013-07-01&Signature=QvItCzgdCPxknmloJGvNgR6F%2BYpQIrPk0tNXsbdJS0o%3D
+      string: AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=ListRegisteredDestinations&MarketplaceId=A1F83G8C2ARO7P&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2016-05-23T13%3A12%3A56Z&Version=2013-07-01&Signature=QvItCzgdCPxknmloJGvNgR6F%2BYpQIrPk0tNXsbdJS0o%3D
     headers:
       User-Agent:
       - Jeff/1.5.1 (Language=Ruby; Hakans-MacBook.home)
@@ -1473,7 +1473,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1524,6 +1524,6 @@ http_interactions:
             <RequestId>7ff0e535-7fbd-4b68-ac06-388fc7190cda</RequestId>
           </ResponseMetadata>
         </ListRegisteredDestinationsResponse>
-    http_version: 
+    http_version:
   recorded_at: Mon, 23 May 2016 13:12:56 GMT
 recorded_with: VCR 3.0.1

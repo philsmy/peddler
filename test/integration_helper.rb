@@ -1,22 +1,35 @@
+# frozen_string_literal: true
+
+require 'credentials'
 require 'helper'
 require 'recorder'
-
-%w[mws.yml mws.yml.example].each do |path|
-  file = File.expand_path("../#{path}", __FILE__)
-  if File.exist?(file)
-    $mws = YAML.load_file(file)
-    break
-  end
-end
 
 class IntegrationTest < MiniTest::Test
   include Recorder
 
-  private
+  class << self
+    def use(endpoint)
+      @current_endpoint = endpoint
+    end
+
+    def clients
+      @clients ||= build_clients
+    end
+
+    private
+
+    def build_clients
+      klass = MWS.const_get("#{current_endpoint}::Client")
+      ::Credentials.map { |credentials| klass.new(credentials) }.shuffle
+    end
+
+    def current_endpoint
+      @current_endpoint ||= name.sub('Test', '')
+    end
+  end
 
   def clients
-    api = @api || test_name
-    $mws.map { |record| MWS.const_get("#{api}::Client").new(record) }.shuffle
+    self.class.clients
   end
 end
 
@@ -31,8 +44,8 @@ VCR.configure do |c|
     end
   end
 
-  $mws.each do |record|
-    c.filter_sensitive_data('FILTERED') { record['merchant_id'] }
-    c.filter_sensitive_data('FILTERED') { record['aws_access_key_id'] }
+  Credentials.each do |record|
+    c.filter_sensitive_data('MERCHANT_ID') { record['merchant_id'] }
+    c.filter_sensitive_data('AWS_ACCESS_KEY_ID') { record['aws_access_key_id'] }
   end
 end

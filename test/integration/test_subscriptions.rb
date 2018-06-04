@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require 'integration_helper'
 require 'mws/subscriptions'
 
 class TestSubscriptions < IntegrationTest
   def test_lists_registered_destinations
     clients.each do |client|
-      res = client.list_registered_destinations
+      res = client.list_registered_destinations(client.marketplace.id)
       refute_empty res.parse
     end
   end
 
   def test_lists_subscriptions
     clients.each do |client|
-      res = client.list_subscriptions
+      res = client.list_subscriptions(client.marketplace.id)
       refute_empty res.parse
     end
   end

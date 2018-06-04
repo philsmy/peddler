@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'integration_helper'
 require 'mws/recommendations'
 
 class TestRecommendations < IntegrationTest
   def test_lists_recommendations
     clients.each do |client|
-      res = client.list_recommendations
+      res = client.list_recommendations(client.marketplace.id)
       refute_empty res.parse
     end
   end

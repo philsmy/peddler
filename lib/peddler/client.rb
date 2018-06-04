@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 require 'jeff'
-require 'peddler/errors/parser'
+require 'peddler/errors/builder'
 require 'peddler/marketplace'
 require 'peddler/operation'
 require 'peddler/parser'
@@ -8,128 +10,82 @@ require 'peddler/parser'
 module Peddler
   # An abstract client
   #
-  # Subclass to implement an MWS API section.
+  # Subclass this to implement an MWS API section.
   class Client
     extend Forwardable
     include Jeff
 
-    # The MWSAuthToken used to access another seller's account
-    # @return [String]
-    attr_accessor :auth_token
-
-    attr_writer :merchant_id, :primary_marketplace_id, :path
-
-    # @api private
-    attr_writer :version
-
-    # The body of the HTTP request
-    # @return [String]
-    attr_reader :body
-
-    alias configure tap
-
-    def_delegators :marketplace, :host, :encoding
-
-    params(
-      'SellerId' => -> { merchant_id },
-      'MWSAuthToken' => -> { auth_token },
-      'Version' => -> { version }
-    )
-
     class << self
       # @api private
-      attr_accessor :error_handler, :parser
-
-      # @api private
-      def path(path = nil)
-        path ? @path = path : @path ||= '/'
-      end
-
-      # @api private
-      def version(version = nil)
-        version ? @version = version : @version ||= nil
-      end
-
-      # Sets an error handler
-      # @yieldparam [Excon::Error] error
-      def on_error(&blk)
-        @error_handler = blk
-      end
+      attr_accessor :parser, :path, :version
 
       private
 
       def inherited(base)
         base.parser = parser
-        base.error_handler = error_handler
-        base.path(path)
-        base.params(params)
+        base.params params
       end
     end
 
-    self.error_handler = proc { raise }
+    params 'SellerId' => -> { merchant_id },
+           'MWSAuthToken' => -> { auth_token },
+           'Version' => -> { version }
     self.parser = Parser
 
-    # Creates a new client instance
-    #
+    def_delegators :marketplace, :host, :encoding
+    def_delegators :'self.class', :parser, :version
+
+    # Creates a new client
     # @param [Hash] opts
-    # @option opts [String] :primary_marketplace_id
-    # @option opts [String] :merchant_id
     # @option opts [String] :aws_access_key_id
     # @option opts [String] :aws_secret_access_key
+    # @option opts [String, Peddler::Marketplace] :marketplace
+    # @option opts [String] :merchant_id
     # @option opts [String] :auth_token
     def initialize(opts = {})
       opts.each { |k, v| send("#{k}=", v) }
     end
 
-    # @api private
-    def aws_endpoint
-      "https://#{host}#{path}"
-    end
-
-    # The merchant's Marketplace ID
-    # @!parse attr_reader :primary_marketplace_id
+    # The MWS Auth Token for a seller's account
+    # @note You can omit this if you are accessing your own seller account
     # @return [String]
-    def primary_marketplace_id
-      @primary_marketplace_id ||= ENV['MWS_MARKETPLACE_ID']
-    end
+    attr_accessor :auth_token
 
-    # @deprecated Use {#primary_marketplace_id}.
-    def marketplace_id
-      @primary_marketplace_id
-    end
-
-    # @deprecated Use {#primary_marketplace_id=}.
-    def marketplace_id=(marketplace_id)
-      @primary_marketplace_id = marketplace_id
-    end
-
-    # The merchant's Seller ID
-    # @!parse attr_reader :merchant_id
+    # The seller's Merchant ID
     # @return [String]
-    def merchant_id
-      @merchant_id ||= ENV['MWS_MERCHANT_ID']
+    attr_accessor :merchant_id
+
+    # The marketplace where you signed up as application developer
+    # @note You can pass the two-letter country code of the marketplace as
+    #   shorthand when setting
+    # @return [Peddler::Marketplace]
+    attr_reader :marketplace
+
+    # @!parse attr_writer :marketplace
+    def marketplace=(marketplace)
+      @marketplace =
+        if marketplace.is_a?(Marketplace)
+          marketplace
+        else
+          Marketplace.find(marketplace)
+        end
     end
 
-    # @api private
-    def marketplace
-      @marketplace ||= find_marketplace
-    end
-
-    # The HTTP path of the API
-    # @!parse attr_reader :path
+    # The body of the HTTP request
     # @return [String]
-    def path
-      @path ||= self.class.path
-    end
-
-    # @api private
-    def version
-      @version ||= self.class.version
-    end
+    attr_reader :body
 
     # @!parse attr_writer :body
     def body=(str)
       str ? add_content(str) : clear_content!
+    end
+
+    # @api private
+    attr_writer :path
+
+    # @api private
+    def path
+      @path ||= self.class.path
     end
 
     # @api private
@@ -142,15 +98,9 @@ module Peddler
       @headers ||= {}
     end
 
-    # Sets an error handler
-    # @yieldparam [Excon::Error] error
-    def on_error(&blk)
-      @error_handler = blk
-    end
-
     # @api private
-    def error_handler
-      (@error_handler ||= nil) || self.class.error_handler
+    def aws_endpoint
+      "https://#{host}#{path}"
     end
 
     # @api private
@@ -166,15 +116,11 @@ module Peddler
       self.body = nil if res.status == 200
 
       parser.new(res, encoding)
-    rescue Excon::Error => e
-      handle_error(e)
+    rescue ::Excon::Error::HTTPStatus => error
+      handle_http_status_error(error)
     end
 
     private
-
-    def find_marketplace
-      Marketplace.new(primary_marketplace_id)
-    end
 
     def clear_content!
       headers.delete('Content-Type')
@@ -196,35 +142,14 @@ module Peddler
       args.last.is_a?(Hash) ? args.pop : {}
     end
 
-    def parser
-      self.class.parser
-    end
-
     def build_options
       opts = defaults.merge(query: operation, headers: headers)
       body ? opts.update(body: body) : opts
     end
 
-    def handle_error(e)
-      e = decorate_error(e)
-      error_handler.call(*deprecate_error_handler_arguments(e))
-    end
-
-    def decorate_error(e)
-      if e.is_a?(:: Excon::Error::HTTPStatus)
-        e.instance_variable_set(:@response, Errors::Parser.new(e.response))
-      end
-
-      e
-    end
-
-    def deprecate_error_handler_arguments(e)
-      if error_handler.parameters.size == 2
-        warn '[DEPRECATION] Error handler now expects exception as argument.'
-        [e.request, e.response]
-      else
-        [e]
-      end
+    def handle_http_status_error(error)
+      new_error = Errors::Builder.call(error)
+      raise new_error || error
     end
   end
 end

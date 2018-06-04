@@ -3,12 +3,67 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.0.1] - 2018-06-01
+### Fixed
+- Fix FulfillmentInboundShipment#create_inbound_shipment_plan.
+
+## [2.0.0] - 2018-03-02
+### Added
+- Allow using country code instead of ID when setting marketplace in a client.
+
+### Changed
+- Do not default to primary marketplace in any operation.
+- Shorten #primary_marketplace_id to #marketplace in client.
+- Use custom errors for MWS specific errors.
+- Update list of error codes created up front.
+- Add mws prefix to MWS header accessors.
+- Fix parameters of FulfillmentOutboundShipment#list_all_fulfillment_orders.
+
+### Removed
+- Remove custom error callbacks.
+- Remove deprecated methods in Client.
+- Remove ENV var for Client#primary_marketplace_id.
+- Remove ENV var for Client#merchant_id.
+- Do not support Ruby 2.2.
+
+## [1.6.7] - 2018-03-02
 ### Added
+- Improve enabling new error handler.
+
+### Changed
+- Do not support Ruby 2.1.
+
+## [1.6.6] - 2018-02-22
+### Changed
+- Bump mininum version of Jeff dependency because Amazon no longer supports the
+deprecated Content-MD5 header.
+- Leave it up to user to use Hash#dig polyfill.
+- Remove errors there's no value in creating up front.
+
+## [1.6.5] - 2017-12-08
+### Changed
+- Optional arguments when instantiating errors for more legible tests.
+
+## [1.6.4] - 2017-12-08
+### Added
+- Add InternalError and InvalidAccessKeyId error codes.
+
+## [1.6.3] - 2017-09-25
+### Added
+- Add Amazon Brazil marketplace.
+
+### Changed
+- Updated hostnames for MWS endpoints.
+
+## [1.6.2] - 2017-09-13
+### Added
+- Add Amazon Australia marketplace.
 - Add ListReturnReasonCodes and CreateFulfillmentReturn operations to the
-FulfillmentOutboundShipment client, by [@samacs].
+FulfillmentOutboundShipment client.
 
 ### Fixed
-- Parse UTF8-encoded flat files correctly, thanks [@alexfalkowski].
+- Parse UTF8-encoded flat files correctly.
 
 ## [1.6.1] - 2017-05-24
 ### Changed
@@ -107,7 +162,15 @@ to the Products client.
 
 ## 1.0.0 - 2015-08-25
 
-[Unreleased]: https://github.com/hakanensari/peddler/compare/v1.6.1...HEAD
+[Unreleased]: https://github.com/hakanensari/peddler/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/hakanensari/peddler/compare/v2.0.0...v2.0.1
+[2.0.0]: https://github.com/hakanensari/peddler/compare/v1.6.7...v2.0.0
+[1.6.7]: https://github.com/hakanensari/peddler/compare/v1.6.6...v1.6.7
+[1.6.6]: https://github.com/hakanensari/peddler/compare/v1.6.5...v1.6.6
+[1.6.5]: https://github.com/hakanensari/peddler/compare/v1.6.4...v1.6.5
+[1.6.4]: https://github.com/hakanensari/peddler/compare/v1.6.3...v1.6.4
+[1.6.3]: https://github.com/hakanensari/peddler/compare/v1.6.2...v1.6.3
+[1.6.2]: https://github.com/hakanensari/peddler/compare/v1.6.1...v1.6.2
 [1.6.1]: https://github.com/hakanensari/peddler/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/hakanensari/peddler/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/hakanensari/peddler/compare/v1.4.1...v1.5.0
@@ -119,6 +182,3 @@ to the Products client.
 [1.1.0]: https://github.com/hakanensari/peddler/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/hakanensari/peddler/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/hakanensari/peddler/compare/v1.0.0...v1.0.1
-
-[@samacs]: https://github.com/samacs
-[@alexfalkowski]: https:/github.com/alexfalkowski

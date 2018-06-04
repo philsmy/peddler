@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://mws.amazonservices.ca/Products/2011-10-01
+    uri: https://mws.amazonservices.com/Products/2011-10-01
     body:
       encoding: UTF-8
-      string: ASIN=1780935374&AWSAccessKeyId=FILTERED&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A2EUQ1WTGCTBG2&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A25Z&Version=2011-10-01&Signature=H7X%2BMTLCIcVYxR0WamedUEDgxfNqL9llzZQlFSLxGVE%3D
+      string: ASIN=1780935374&AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A2EUQ1WTGCTBG2&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A25Z&Version=2011-10-01&Signature=H7X%2BMTLCIcVYxR0WamedUEDgxfNqL9llzZQlFSLxGVE%3D
     headers:
       User-Agent:
       - Jeff/1.5.2 (Language=Ruby; Hakans-MacBook.home)
@@ -14,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -245,14 +245,14 @@ http_interactions:
                 <RequestId>408ccd3b-7fe0-4a9d-a998-af75cb2a396e</RequestId>
             </ResponseMetadata>
         </GetLowestPricedOffersForASINResponse>
-    http_version: 
+    http_version:
   recorded_at: Sun, 29 Jan 2017 23:55:25 GMT
 - request:
     method: post
-    uri: https://mws.amazonservices.com.mx/Products/2011-10-01
+    uri: https://mws.amazonservices.com/Products/2011-10-01
     body:
       encoding: UTF-8
-      string: ASIN=1780935374&AWSAccessKeyId=FILTERED&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1AM78C64UM0Y8&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A25Z&Version=2011-10-01&Signature=d%2FQR7okNPKpJC6iph%2B%2FlBvyyzaek5XUz69XUvyNMe5E%3D
+      string: ASIN=1780935374&AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1AM78C64UM0Y8&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A25Z&Version=2011-10-01&Signature=d%2FQR7okNPKpJC6iph%2B%2FlBvyyzaek5XUz69XUvyNMe5E%3D
     headers:
       User-Agent:
       - Jeff/1.5.2 (Language=Ruby; Hakans-MacBook.home)
@@ -261,7 +261,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -371,14 +371,14 @@ http_interactions:
                 <RequestId>12fc4adb-e3a3-4b84-afb6-0c78d3d3bf31</RequestId>
             </ResponseMetadata>
         </GetLowestPricedOffersForASINResponse>
-    http_version: 
+    http_version:
   recorded_at: Sun, 29 Jan 2017 23:55:26 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Products/2011-10-01
     body:
       encoding: UTF-8
-      string: ASIN=1780935374&AWSAccessKeyId=FILTERED&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A13V1IB3VIYZZH&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A26Z&Version=2011-10-01&Signature=2X6DAb8dBXo4tik0R2rC6ETsB135RLpUfjxESnHvJBo%3D
+      string: ASIN=1780935374&AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A13V1IB3VIYZZH&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A26Z&Version=2011-10-01&Signature=2X6DAb8dBXo4tik0R2rC6ETsB135RLpUfjxESnHvJBo%3D
     headers:
       User-Agent:
       - Jeff/1.5.2 (Language=Ruby; Hakans-MacBook.home)
@@ -387,7 +387,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -658,14 +658,14 @@ http_interactions:
                 <RequestId>4e4ab75b-e3b6-4ef8-a98b-da4da3bb1748</RequestId>
             </ResponseMetadata>
         </GetLowestPricedOffersForASINResponse>
-    http_version: 
+    http_version:
   recorded_at: Sun, 29 Jan 2017 23:55:26 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Products/2011-10-01
     body:
       encoding: UTF-8
-      string: ASIN=1780935374&AWSAccessKeyId=FILTERED&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=APJ6JRA9NG5V4&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A26Z&Version=2011-10-01&Signature=xm2RDsPkOny8978d9XG0%2BgK455HgOMjyan%2FavtSP%2BqQ%3D
+      string: ASIN=1780935374&AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=APJ6JRA9NG5V4&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A26Z&Version=2011-10-01&Signature=xm2RDsPkOny8978d9XG0%2BgK455HgOMjyan%2FavtSP%2BqQ%3D
     headers:
       User-Agent:
       - Jeff/1.5.2 (Language=Ruby; Hakans-MacBook.home)
@@ -674,7 +674,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -885,14 +885,14 @@ http_interactions:
                 <RequestId>28b495b8-e3ef-4c9e-898f-93e63434ccfa</RequestId>
             </ResponseMetadata>
         </GetLowestPricedOffersForASINResponse>
-    http_version: 
+    http_version:
   recorded_at: Sun, 29 Jan 2017 23:55:26 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Products/2011-10-01
     body:
       encoding: UTF-8
-      string: ASIN=1780935374&AWSAccessKeyId=FILTERED&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1RKKUPIHCS9HS&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A26Z&Version=2011-10-01&Signature=i7l1doNEaqf58fLz2Cdz1E70vCxtaCROLtOS8C99jDg%3D
+      string: ASIN=1780935374&AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1RKKUPIHCS9HS&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A26Z&Version=2011-10-01&Signature=i7l1doNEaqf58fLz2Cdz1E70vCxtaCROLtOS8C99jDg%3D
     headers:
       User-Agent:
       - Jeff/1.5.2 (Language=Ruby; Hakans-MacBook.home)
@@ -901,7 +901,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1128,14 +1128,14 @@ http_interactions:
                 <RequestId>593ab553-7add-4ec4-8b0e-312315da4d03</RequestId>
             </ResponseMetadata>
         </GetLowestPricedOffersForASINResponse>
-    http_version: 
+    http_version:
   recorded_at: Sun, 29 Jan 2017 23:55:27 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Products/2011-10-01
     body:
       encoding: UTF-8
-      string: ASIN=1780935374&AWSAccessKeyId=FILTERED&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1F83G8C2ARO7P&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A27Z&Version=2011-10-01&Signature=gMdMhRhNYOzNr8k1j7nc0N%2Bdm3DBppHMVod2I22A48g%3D
+      string: ASIN=1780935374&AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1F83G8C2ARO7P&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A27Z&Version=2011-10-01&Signature=gMdMhRhNYOzNr8k1j7nc0N%2Bdm3DBppHMVod2I22A48g%3D
     headers:
       User-Agent:
       - Jeff/1.5.2 (Language=Ruby; Hakans-MacBook.home)
@@ -1144,7 +1144,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1701,14 +1701,14 @@ http_interactions:
                 <RequestId>b25ccae3-98f0-47e2-9d27-980fc47d4758</RequestId>
             </ResponseMetadata>
         </GetLowestPricedOffersForASINResponse>
-    http_version: 
+    http_version:
   recorded_at: Sun, 29 Jan 2017 23:55:27 GMT
 - request:
     method: post
     uri: https://mws.amazonservices.jp/Products/2011-10-01
     body:
       encoding: UTF-8
-      string: ASIN=1780935374&AWSAccessKeyId=FILTERED&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1VC38T7YXB528&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A27Z&Version=2011-10-01&Signature=UaahepgMwkrScQBAurjnn8M9N2VKiIgqNoz18PGW6cQ%3D
+      string: ASIN=1780935374&AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1VC38T7YXB528&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A27Z&Version=2011-10-01&Signature=UaahepgMwkrScQBAurjnn8M9N2VKiIgqNoz18PGW6cQ%3D
     headers:
       User-Agent:
       - Jeff/1.5.2 (Language=Ruby; Hakans-MacBook.home)
@@ -1717,7 +1717,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -1905,14 +1905,14 @@ http_interactions:
                 <RequestId>608a6fb0-5815-4d8a-8ae8-9b68d23513f3</RequestId>
             </ResponseMetadata>
         </GetLowestPricedOffersForASINResponse>
-    http_version: 
+    http_version:
   recorded_at: Sun, 29 Jan 2017 23:55:28 GMT
 - request:
     method: post
     uri: https://mws-eu.amazonservices.com/Products/2011-10-01
     body:
       encoding: UTF-8
-      string: ASIN=1780935374&AWSAccessKeyId=FILTERED&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1PA6795UKMFR9&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A28Z&Version=2011-10-01&Signature=hty1wQJHasp6bveR009ayVlpcnzD2fwBqpL8qsVgZdY%3D
+      string: ASIN=1780935374&AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=A1PA6795UKMFR9&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A28Z&Version=2011-10-01&Signature=hty1wQJHasp6bveR009ayVlpcnzD2fwBqpL8qsVgZdY%3D
     headers:
       User-Agent:
       - Jeff/1.5.2 (Language=Ruby; Hakans-MacBook.home)
@@ -1921,7 +1921,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -2478,14 +2478,14 @@ http_interactions:
                 <RequestId>db909c69-263e-4a95-be68-ee4c9aca61a4</RequestId>
             </ResponseMetadata>
         </GetLowestPricedOffersForASINResponse>
-    http_version: 
+    http_version:
   recorded_at: Sun, 29 Jan 2017 23:55:29 GMT
 - request:
     method: post
     uri: https://mws.amazonservices.com/Products/2011-10-01
     body:
       encoding: UTF-8
-      string: ASIN=1780935374&AWSAccessKeyId=FILTERED&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=ATVPDKIKX0DER&SellerId=FILTERED&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A29Z&Version=2011-10-01&Signature=y7VIYln%2BjIJFEDukZY0v3b1%2FwLAJCrGVNb%2BFfoxy2xg%3D
+      string: ASIN=1780935374&AWSAccessKeyId=AWS_ACCESS_KEY_ID&Action=GetLowestPricedOffersForASIN&ItemCondition=New&MarketplaceId=ATVPDKIKX0DER&SellerId=MERCHANT_ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-01-29T23%3A55%3A29Z&Version=2011-10-01&Signature=y7VIYln%2BjIJFEDukZY0v3b1%2FwLAJCrGVNb%2BFfoxy2xg%3D
     headers:
       User-Agent:
       - Jeff/1.5.2 (Language=Ruby; Hakans-MacBook.home)
@@ -2494,7 +2494,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Server:
       - Server
@@ -2959,6 +2959,6 @@ http_interactions:
                 <RequestId>f0f3d790-1642-458d-88e5-baead9088283</RequestId>
             </ResponseMetadata>
         </GetLowestPricedOffersForASINResponse>
-    http_version: 
+    http_version:
   recorded_at: Sun, 29 Jan 2017 23:55:29 GMT
 recorded_with: VCR 3.0.3

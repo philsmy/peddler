@@ -28,17 +28,11 @@ module MWS
       # @option opts [Boolean] :include_cod_fulfillment_preview
       # @return [Peddler::XMLParser]
       def get_fulfillment_preview(address, items, opts = {})
-        opts = opts.dup
-        if opts.key?(:include_cod_fulfillment_preview)
-          opts['IncludeCODFulfillmentPreview'] =
-            opts.delete(:include_cod_fulfillment_preview)
-        end
-
         operation('GetFulfillmentPreview')
           .add(opts)
           .add('Address' => address, 'Items' => items)
           .structure!('Items', 'member')
-          .structure!('ShippingSpeedCategories')
+          .structure!('ShippingSpeedCategories', 'member')
 
         run
       end
@@ -66,11 +60,6 @@ module MWS
                                    displayable_order_comment,
                                    shipping_speed_category,
                                    destination_address, items, opts = {})
-        opts = opts.dup
-        if opts.key?(:cod_settings)
-          opts['CODSettings'] = opts.delete(:cod_settings)
-        end
-
         operation('CreateFulfillmentOrder')
           .add(opts)
           .add('SellerFulfillmentOrderId' => seller_fulfillment_order_id,

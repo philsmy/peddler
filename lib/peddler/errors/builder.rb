@@ -11,7 +11,7 @@ module Peddler
     class Builder
       extend Forwardable
 
-      DIGIT_AS_FIRST_CHAR = /^\d/
+      DIGIT_AS_FIRST_CHAR = /^\d/.freeze
       private_constant :DIGIT_AS_FIRST_CHAR
 
       def_delegator :error, :response
@@ -29,13 +29,14 @@ module Peddler
       def build
         parse_original_response
         return if bad_class_name?
+
         error_class.new(error_message, error)
       end
 
       private
 
       def bad_class_name?
-        error_name =~ DIGIT_AS_FIRST_CHAR
+        error_name.match?(DIGIT_AS_FIRST_CHAR)
       end
 
       def error_class

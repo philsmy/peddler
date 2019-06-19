@@ -3,13 +3,39 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fix query format in FulfillmentOutboundShipment#GetFulfillmentPreview
+
+## [2.1.1] - 2019-04-05
+### Fixed
+- Parse flat files correctly if charset passed in response header
+
+## [2.1.0] - 2019-02-15
+### Added
+- Add Amazon Turkey to marketplaces.
+
+### Fixed
+- Work around upstream bug in FulfillmentInboundShipment#get_prep_instructions_for_asin.
+
+## [2.0.4] - 2018-07-02
+### Fixed
+- Properly massage inbound shipment items in FulfillmentInboundShipment#create_inbound_shipment and FulfillmentInboundShipment#update_inbound_shipment_plan.
+- Require inbound shipment items argument.
+
+## [2.0.3] - 2018-06-29
+### Fixed
+- Structure nested structured lists.
+
+## [2.0.2] - 2018-06-22
+### Fixed
+- Parse flat files with blank rows.
 
 ## [2.0.1] - 2018-06-01
 ### Fixed
 - Fix FulfillmentInboundShipment#create_inbound_shipment_plan.
 
 ## [2.0.0] - 2018-03-02
-### Added
+### Added
 - Allow using country code instead of ID when setting marketplace in a client.
 
 ### Changed
@@ -162,7 +188,12 @@ to the Products client.
 
 ## 1.0.0 - 2015-08-25
 
-[Unreleased]: https://github.com/hakanensari/peddler/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/hakanensari/peddler/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/hakanensari/peddler/compare/v2.1.0...v2.1.1
+[2.1.0]: https://github.com/hakanensari/peddler/compare/v2.0.4...v2.1.0
+[2.0.4]: https://github.com/hakanensari/peddler/compare/v2.0.3...v2.0.4
+[2.0.3]: https://github.com/hakanensari/peddler/compare/v2.0.2...v2.0.3
+[2.0.2]: https://github.com/hakanensari/peddler/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/hakanensari/peddler/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/hakanensari/peddler/compare/v1.6.7...v2.0.0
 [1.6.7]: https://github.com/hakanensari/peddler/compare/v1.6.6...v1.6.7

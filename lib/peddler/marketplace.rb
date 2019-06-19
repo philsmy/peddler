@@ -39,10 +39,6 @@ module Peddler
       end
     end
 
-    # Caveat: We use the supersets Windows-31J and CP1252 in place of Shift_JIS
-    # and ISO 8859-1 respectively to handle edge cases where latter will not
-    # support some characters. The supersets should be safe to use as drop-in
-    # replacements.
     def encoding
       case country_code
       when 'JP'
@@ -66,6 +62,7 @@ module Peddler
       ['A13V1IB3VIYZZH', 'FR', 'mws-eu.amazonservices.com'],
       ['APJ6JRA9NG5V4', 'IT', 'mws-eu.amazonservices.com'],
       ['A1F83G8C2ARO7P', 'GB', 'mws-eu.amazonservices.com'],
+      ['A33AVAJ2PDY3EV', 'TR', 'mws-eu.amazonservices.com'],
       ['A21TJRUUN4KGV', 'IN', 'mws.amazonservices.in'],
       ['A39IBJ37TRP1C6', 'AU', 'mws.amazonservices.com.au'],
       ['A1VC38T7YXB528', 'JP', 'mws.amazonservices.jp'],

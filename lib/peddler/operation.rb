@@ -7,7 +7,9 @@ require 'peddler/structured_list'
 module Peddler
   # @api private
   class Operation < SimpleDelegator
-    CAPITAL_LETTERS = /[A-Z]/
+    CAPITAL_LETTERS = /[A-Z]/.freeze
+    ALL_CAPS = %w[sku cod].freeze
+    private_constant :CAPITAL_LETTERS, :ALL_CAPS
 
     def initialize(action)
       super('Action' => action)
@@ -15,20 +17,19 @@ module Peddler
 
     def structure!(*list_keys)
       list_key = list_keys.shift
-      found_key = keys.find { |key| key.end_with?(list_key) }
-      if found_key
-        builder = StructuredList.new(found_key, *list_keys)
-        vals = delete(found_key)
-        update(builder.build(vals))
-      end
+      keys
+        .find_all { |key| key.end_with?(list_key) }
+        .each do |found_key|
+          builder = StructuredList.new(found_key, *list_keys)
+          vals = delete(found_key)
+          update(builder.build(vals))
+        end
 
       self
     end
 
-    def store(key, val, parent: '')
-      key = camelize(key) if key.is_a?(Symbol)
-      key = "#{parent}.#{key}" unless parent.empty?
-
+    def store(key, val, parent: nil)
+      key = [parent, camelize(key)].compact.join('.')
       val = val.iso8601 if val.respond_to?(:iso8601)
       val = val.to_h if val.is_a?(Struct)
 
@@ -48,14 +49,23 @@ module Peddler
 
     private
 
-    def camelize(sym)
-      return sym.to_s if sym =~ CAPITAL_LETTERS
+    def camelize(key)
+      return key unless key.is_a?(Symbol)
+      return key.to_s if key.match?(CAPITAL_LETTERS)
 
-      sym
+      key
         .to_s
         .split('_')
-        .map { |token| token == 'sku' ? 'SKU' : token.capitalize }
+        .map { |token| capitalize(token) }
         .join
+    end
+
+    def capitalize(word)
+      if ALL_CAPS.any? { |val| val == word }
+        word.upcase
+      else
+        word.capitalize
+      end
     end
   end
 end

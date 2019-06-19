@@ -52,6 +52,7 @@ module Peddler
     attr_accessor :auth_token
 
     # The seller's Merchant ID
+    # @note Amazon also refers to this as Seller ID or Merchant Token
     # @return [String]
     attr_accessor :merchant_id
 
@@ -116,8 +117,8 @@ module Peddler
       self.body = nil if res.status == 200
 
       parser.new(res, encoding)
-    rescue ::Excon::Error::HTTPStatus => error
-      handle_http_status_error(error)
+    rescue ::Excon::Error::HTTPStatus => e
+      handle_http_status_error(e)
     end
 
     private

@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 require 'peddler/client'
@@ -71,13 +70,13 @@ module MWS
       # @see https://docs.developer.amazonservices.com/en_US/fba_inbound/FBAInbound_CreateInboundShipment.html
       # @param [String] shipment_id
       # @param [Struct, Hash] inbound_shipment_header
-      # @param [Hash] opts
-      # @option opts [Array<Struct, Hash>] :inbound_shipment_items
+      # @param [Array<Struct, Hash>] :inbound_shipment_items
       # @return [Peddler::XMLParser]
       def create_inbound_shipment(shipment_id, inbound_shipment_header,
-                                  opts = {})
+                                  inbound_shipment_items)
         build_inbound_shipment_operation('CreateInboundShipment', shipment_id,
-                                         inbound_shipment_header, opts)
+                                         inbound_shipment_header,
+                                         inbound_shipment_items)
 
         run
       end
@@ -87,13 +86,13 @@ module MWS
       # @see https://docs.developer.amazonservices.com/en_US/fba_inbound/FBAInbound_UpdateInboundShipment.html
       # @param [String] shipment_id
       # @param [Struct, Hash] inbound_shipment_header
-      # @param [Hash] opts
-      # @option opts [Array<Struct, Hash>] :inbound_shipment_items
+      # @param [Array<Struct, Hash>] :inbound_shipment_items
       # @return [Peddler::XMLParser]
       def update_inbound_shipment(shipment_id, inbound_shipment_header,
-                                  opts = {})
+                                  inbound_shipment_items)
         build_inbound_shipment_operation('UpdateInboundShipment', shipment_id,
-                                         inbound_shipment_header, opts)
+                                         inbound_shipment_header,
+                                         inbound_shipment_items)
 
         run
       end
@@ -153,6 +152,14 @@ module MWS
           .structure!('ASINList', 'Id')
 
         run
+      # Work around a bug upstream
+      #
+      # @see https://github.com/hakanensari/peddler/issues/122
+      rescue Peddler::Errors::Error => e
+        raise unless e.message.include?("Value null at 'asinList'")
+
+        get_prep_instructions_for_asin_with_bad_params(ship_to_country_code,
+                                                       *asin_list)
       end
 
       # Sends transportation information to Amazon about an inbound shipment
@@ -357,12 +364,24 @@ module MWS
       private
 
       def build_inbound_shipment_operation(operation_name, shipment_id,
-                                           inbound_shipment_header, opts)
+                                           inbound_shipment_header,
+                                           inbound_shipment_items)
         operation(operation_name)
-          .add(opts)
           .add('ShipmentId' => shipment_id,
-               'InboundShipmentHeader' => inbound_shipment_header)
+               'InboundShipmentHeader' => inbound_shipment_header,
+               'InboundShipmentItems' => inbound_shipment_items)
           .structure!('InboundShipmentItems', 'member')
+          .structure!('PrepDetailsList', 'member')
+      end
+
+      def get_prep_instructions_for_asin_with_bad_params(_ship_to_country_code,
+                                                         *asin_list)
+        operation
+          .add('AsinList' => asin_list)
+          .structure!('AsinList', 'Id')
+          .delete_if { |key, _val| key.include?('ASINList') }
+
+        run
       end
     end
   end

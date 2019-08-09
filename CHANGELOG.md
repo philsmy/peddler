@@ -3,12 +3,18 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add Amazon United Arab Emirates to marketplaces.
+
 ### Fixed
-- Fix query format in FulfillmentOutboundShipment#GetFulfillmentPreview
+- Fix query format in FulfillmentOutboundShipment#GetFulfillmentPreview.
 
 ## [2.1.1] - 2019-04-05
 ### Fixed
-- Parse flat files correctly if charset passed in response header
+- Parse flat files correctly if charset passed in response header.
+
+### Removed
+- Do not support Ruby 2.3.
 
 ## [2.1.0] - 2019-02-15
 ### Added

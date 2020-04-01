@@ -5,7 +5,7 @@ require 'time'
 require 'peddler/structured_list'
 
 module Peddler
-  # @api private
+  # @!visibility private
   class Operation < SimpleDelegator
     CAPITAL_LETTERS = /[A-Z]/.freeze
     ALL_CAPS = %w[sku cod].freeze
@@ -28,13 +28,12 @@ module Peddler
       self
     end
 
-    def store(key, val, parent: nil)
+    def store(key, val, parent = nil)
       key = [parent, camelize(key)].compact.join('.')
-      val = val.iso8601 if val.respond_to?(:iso8601)
-      val = val.to_h if val.is_a?(Struct)
+      val = format_known_types(val)
 
       if val.is_a?(Hash)
-        val.each { |keyval| store(*keyval, parent: key) }
+        val.each { |keyval| store(*keyval, key) }
       else
         __getobj__.store(key, val)
       end
@@ -66,6 +65,14 @@ module Peddler
       else
         word.capitalize
       end
+    end
+
+    def format_known_types(val)
+      val = val.utc.iso8601(2) if val.is_a?(Time)
+      val = val.iso8601 if val.is_a?(Date)
+      val = val.to_h if val.is_a?(Struct)
+
+      val
     end
   end
 end

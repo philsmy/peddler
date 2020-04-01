@@ -1,18 +1,19 @@
 # frozen_string_literal: true
 
 require 'forwardable'
+require 'mws/easy_ship'
 require 'mws/feeds'
 require 'mws/finances'
 require 'mws/fulfillment_inbound_shipment'
 require 'mws/fulfillment_inventory'
 require 'mws/fulfillment_outbound_shipment'
 require 'mws/merchant_fulfillment'
-require 'mws/off_amazon_payments'
 require 'mws/orders'
 require 'mws/products'
 require 'mws/recommendations'
 require 'mws/reports'
 require 'mws/sellers'
+require 'mws/shipment_invoicing'
 require 'mws/subscriptions'
 
 # The various Amazon MWS API sections.

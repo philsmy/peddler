@@ -4,10 +4,29 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Add Netherlands endpoint
+
+### Fixed
+- Work around bad charset name
+
+## [2.3.0] - 2020-01-27
+### Added
+- Add Egypt, Saudi Arabia, and Singapore endpoints
+- Add Easy Ship API
+- Add Shipment Invoicing API
+- Support Ruby 2.7
+
+### Removed
+- Remove China. It is no longer supported starting 1st October 2019.
+- Remove Off-Amazon Payments. This is no longer under the MWS umbrella and has its own official Ruby client.
+
+## [2.2.0] - 2019-09-04
+### Added
 - Add Amazon United Arab Emirates to marketplaces.
 
 ### Fixed
 - Fix query format in FulfillmentOutboundShipment#GetFulfillmentPreview.
+- Handle missing error response in HTTP status error
 
 ## [2.1.1] - 2019-04-05
 ### Fixed
@@ -194,7 +213,9 @@ to the Products client.
 
 ## 1.0.0 - 2015-08-25
 
-[Unreleased]: https://github.com/hakanensari/peddler/compare/v2.1.1...HEAD
+[Unreleased]: https://github.com/hakanensari/peddler/compare/v2.3.0...HEAD
+[2.3.0]: https://github.com/hakanensari/peddler/compare/v2.2.0...v2.3.0
+[2.2.0]: https://github.com/hakanensari/peddler/compare/v2.1.1...v2.2.0
 [2.1.1]: https://github.com/hakanensari/peddler/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/hakanensari/peddler/compare/v2.0.4...v2.1.0
 [2.0.4]: https://github.com/hakanensari/peddler/compare/v2.0.3...v2.0.4

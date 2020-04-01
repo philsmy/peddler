@@ -7,7 +7,7 @@ require 'peddler/errors/parser'
 
 module Peddler
   module Errors
-    # @api private
+    # @!visibility private
     class Builder
       extend Forwardable
 
@@ -28,6 +28,7 @@ module Peddler
 
       def build
         parse_original_response
+        return if no_error_response?
         return if bad_class_name?
 
         error_class.new(error_message, error)
@@ -37,6 +38,10 @@ module Peddler
 
       def bad_class_name?
         error_name.match?(DIGIT_AS_FIRST_CHAR)
+      end
+
+      def no_error_response?
+        response.parse.nil?
       end
 
       def error_class

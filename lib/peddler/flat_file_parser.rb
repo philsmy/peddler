@@ -6,7 +6,7 @@ require 'digest/md5'
 require 'peddler/headers'
 
 module Peddler
-  # @api private
+  # @!visibility private
   class FlatFileParser < SimpleDelegator
     include Headers
 
@@ -23,7 +23,7 @@ module Peddler
     end
 
     def parse(&blk)
-      CSV.parse(content, OPTIONS, &blk) unless content.empty?
+      CSV.parse(content, **OPTIONS, &blk) unless content.empty?
     end
 
     def records_count

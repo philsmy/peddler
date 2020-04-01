@@ -1,0 +1,27 @@
+Layout/LineLength:
+  Exclude:
+    - "test/**/*"
+  IgnoredPatterns: ['\A\s*#']
+Metrics/AbcSize:
+  Exclude:
+    - "test/**/*"
+Metrics/ClassLength:
+  Exclude:
+    - "lib/mws/**/client.rb"
+    - "test/**/*"
+Metrics/MethodLength:
+  Exclude:
+    - "lib/mws/**/client.rb"
+    - "test/**/*"
+Metrics/ParameterLists:
+  Exclude:
+    - "lib/mws/**/client.rb"
+Naming/AccessorMethodName:
+  Exclude:
+    - "lib/mws/**/client.rb"
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
